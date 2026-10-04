@@ -3402,7 +3402,7 @@ function drawWorld(cx,cy){
 
 /* ---------------- DRAW: LIGHT ---------------- */
 function ambient(){
-  let a=mode===0?0.82:0.72;
+  let a=mode===0?0.72:0.64;
   const p=nightProg();
   if(p>0.8)a*=1-(p-0.8)/0.2*0.65;
   if(lightFlash>0){const f=lightFlash;if(f>0.28||(f>0.12&&f<0.18))a*=0.08}
@@ -3412,9 +3412,9 @@ function drawLighting(cx,cy){
   const L=[],fog=weather==='FOG'?0.85:1;
   const px=P.x-cx,py=P.y-cy-4;
   if(mode===0){
-    const r=(P.hide?20:72)*(has('NIGHT EYES')?1.25:1)*fog;
+    const r=(P.hide?20:86)*(has('NIGHT EYES')?1.25:1)*fog;
     L.push({x:px,y:py,r:r,a:1});
-  }else L.push({x:px,y:py,r:96*fog,a:1});
+  }else L.push({x:px,y:py,r:108*fog,a:1});
   for(const c of humans())if(c.lantern&&!c.hide&&!c.dead)L.push({x:c.x-cx,y:c.y-cy-4,r:34,a:0.9,c:'255,190,110'});
   if(EX.cops.power){
     for(const l of lamps){const x=l.x-cx,y=l.y-cy-6;
